@@ -15,5 +15,6 @@ project (assignment2) {
   Template_Files {
     Fixed_Array.cpp
     Stack.cpp
+    Queue.cpp
   }
 }
