@@ -40,13 +40,6 @@ public:
     empty_exception (void)
       : std::exception () { }
 
-    /**
-     * Initializing constructor.
-     *
-     * @param[in]      msg         Error message.
-     */
-    empty_exception (const char * msg)
-      : std::exception (msg) { }
   };
 
   /// Default constructor.
