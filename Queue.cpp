@@ -28,21 +28,18 @@ Queue<T>::~Queue(void)
 template <typename T>
 void Queue <T>::enqueue(T element)
 {
-    //checking if queue is full if it is resize this logic is wrong but im not sure how might need to figure out something else
-    if(back_ == Array<T>::max_size() -1)
-    {
-        Array<T>::resize(Array<T>::max_size() + 1);
-    }
-    else
-    { 
+   
+   
+   
         if (front_ == -1)
         { 
             front_ = 0;
         }
-            back_++;
+            
+        back_++;
 
-            Array<T>::set(back_, element);
-}
+        Array<T>::set(back_, element);
+
 
 }
 
@@ -54,7 +51,8 @@ void Queue <T>::dequeue(void)
     if (is_empty())
         throw empty_exception();
     else {
-       if (is_empty()) {     
+       if (front_ >= back_) 
+           {     
             front_ = -1;
             back_ = -1;
         }
@@ -68,7 +66,11 @@ void Queue <T>::dequeue(void)
 template <typename T>
 const Queue <T>& Queue <T>::operator = (const Queue & rhs)
 {
-    Queue(rhs);
+    if (this != &rhs)
+    {
+        Queue(rhs); //calling copy constructor
+    }
+    return *this;
 }
 
 

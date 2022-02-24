@@ -69,9 +69,11 @@ void Stack <T>::pop (void)
 template <typename T>
 const Stack <T> & Stack <T>::operator = (const Stack & rhs)
 {
-	Stack(rhs); //calling copy constructor
-	
-
+	if (this != &rhs)
+	{
+		Stack(rhs); //calling copy constructor
+	}
+	return *this;
 }
 
 //

@@ -1,27 +1,43 @@
+
+
+#include "Fixed_Array.h"
+#include "Array.h"
+#include "Stack.h"
+#include "Queue.h"
+#include "basic_array.h"
+#include <iostream>
+
+/*
 #include "Fixed_Array.cpp"
 #include "Array.cpp"
 #include "Stack.cpp"
 #include "Queue.cpp"
+#include "basic_array.cpp"
 #include <iostream>
+*/
+
 
 int main(int argc, char* argv[])
 {
-	//const Array<int> fill = Array<int>(5,5);
+	const Array<int> fill = Array<int>(5,5);
 	
-	//Fixed_Array<int, 5> * test = new Fixed_Array<int, 5>(5);
-	//Fixed_Array<int, 5> * test2 = new Fixed_Array<int, 5>(0);
+	Fixed_Array<int, 5> * test = new Fixed_Array<int, 5>(5);
+	Fixed_Array<int, 5> * test2 = new Fixed_Array<int, 5>(0);
 
 	Stack<int>* stackTest = new Stack<int>();
 	Stack<int>* stackTest2 = new Stack<int>();
 
 	Queue<int>* QueueTest = new Queue<int>();
 
+	QueueTest->resize(10);
+
 	QueueTest->enqueue(5);
 	QueueTest->enqueue(6);
 	QueueTest->enqueue(7);
-	//QueueTest->dequeue();
+	QueueTest->dequeue();
+	QueueTest->dequeue();
 	
-	std::cout << QueueTest->get(1) << std::endl;
+	std::cout << QueueTest->get(3) << std::endl;
 	std::cout << QueueTest->size() << std::endl; 
 	
 

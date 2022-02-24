@@ -15,7 +15,7 @@
 //
 template <typename T, size_t N>
 Fixed_Array <T, N>::Fixed_Array (void)
-	:Array<T>::Array() //calling parent Array default constructor
+	:basic_array<T>::basic_array() //calling parent Array default constructor
 {
 	 
 }
@@ -25,30 +25,18 @@ Fixed_Array <T, N>::Fixed_Array (void)
 //
 template <typename T, size_t N>
 Fixed_Array <T, N>::Fixed_Array (const Fixed_Array <T, N> & arr)
-	:Array<T>::Array(arr) //calling parent Array copy constructor passing arr
+	:basic_array<T>::basic_array(arr) //calling parent Array copy constructor passing arr
 {
 	 
 }
 
-//
-// Fixed_Array
-//
-template <typename T, size_t N>
-template <size_t M>
-Fixed_Array <T, N>::Fixed_Array (const Fixed_Array <T, M> & arr)
-	:Array<T>::Array(arr) //unsure of the purpose of this method, calling the copy constructor but with an array that is size M instead size N?
-{
-	 
-	
-
-}
 
 //
 // Fixed_Array
 //
 template <typename T, size_t N>
 Fixed_Array <T, N>::Fixed_Array (T fill)
-	:Array<T>::Array(N,fill)
+	:basic_array<T>::basic_array(N,fill)
 {
 	 //calling parent Array initializing fill constructor 
 }
@@ -77,16 +65,4 @@ const Fixed_Array <T, N> & Fixed_Array <T, N>::operator = (const Fixed_Array <T,
 	return *this;
 }
 
-//
-// operator =
-//
-template <typename T, size_t N>
-template <size_t M>
-const Fixed_Array <T, N> & Fixed_Array <T, N>::operator = (const Fixed_Array <T, M> & rhs)
-{
-	if (this != &rhs)
-	{
-		Fixed_Array(rhs); //calling copy constructor
-	}
-	return *this;
-}
+
