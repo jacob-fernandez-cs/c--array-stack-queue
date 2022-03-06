@@ -8,6 +8,9 @@
 #include "Array.h"
 #include <exception>
 
+// COMMENT You should use aggregation instead of inheritance since logically
+// a queue is not an array. Because you are using inheritence, you are forced to hide
+// methods that do not make sense to this class.
 
 /**
  * @class Queue

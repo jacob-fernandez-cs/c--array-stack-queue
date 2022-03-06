@@ -29,7 +29,11 @@ template <typename T>
 void Queue <T>::enqueue(T element)
 {
    
-   
+    // COMMENT The queue will fail if the array runs out of space. Since this
+    // is an unboudned queue, you need to resize the array to make space for
+    // new elements. Also, make sure you do not waste any space if you must
+    // resize the array to accommodate new elements. This will require updates
+    // to your dequeue method.
    
         if (front_ == -1)
         { 
@@ -43,6 +47,8 @@ void Queue <T>::enqueue(T element)
 
 }
 
+
+// COMMENT This method should return a value.
 
 template <typename T>
 void Queue <T>::dequeue(void)
@@ -77,6 +83,9 @@ const Queue <T>& Queue <T>::operator = (const Queue & rhs)
 template <typename T>
 void Queue <T>::clear(void)
 {
+    // COMMENT This works, but is a very expensive operation. You should find a
+    // way to just reset the state without having to dequeue every element.
+    
    //while the front is not -1 dequeue
     while (front_ != -1)
         dequeue();

@@ -16,6 +16,10 @@
 #include "Array.h"
 #include <exception>
 
+// COMMENT You should use aggregation instead of inheritance since logically a
+// stack is not an array. Because you are using inheritence, you are force to hide
+// methods that do not make sense to this class.
+
 /**
  * @class Stack
  *
