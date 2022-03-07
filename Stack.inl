@@ -24,7 +24,7 @@ inline
 T Stack <T>::top (void) const
 {
 	if (top_ > 0)
-		return  Array<T>::get(top_ - 1);
+		return aggregationArray_.get(top_ - 1);
 	else
 		throw empty_exception();
 }

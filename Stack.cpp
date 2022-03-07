@@ -10,7 +10,7 @@
 //
 template <typename T>
 Stack <T>::Stack (void)
-	:Array<T>::Array(), top_(0)// calling parent class constructor and setting top to 0 since there is no elements in the stack
+	:aggregationArray_(), top_(0)// changed to calling default constuctor of member object and set top_ to 0
 {
 
 }
@@ -20,7 +20,7 @@ Stack <T>::Stack (void)
 //
 template <typename T>
 Stack <T>::Stack (const Stack & stack)
-	:Array<T>::Array(stack), top_(stack.top_) //calling parent class copy constructor and setting top equal to stack.top_
+	:aggregationArray_(stack.aggregationArray_), top_(stack.top_) //changed to calling copy constuctor and setting top equal to stack.top_
 {
 
 }
@@ -40,13 +40,15 @@ Stack <T>::~Stack (void)
 template <typename T>
 void Stack <T>::push (T element)
 {
-	if (top_ == Array<T>::max_size() ) //checking to make sure the stack has not exceeded the max_size_ value of the parent array class
+	if (top_ == aggregationArray_.max_size() ) //checking to make sure the stack has not exceeded the max_size_ value 
 	{
-		Array<T>::resize(Array<T>::max_size()+ 1);
+		
+		aggregationArray_.resize(aggregationArray_.max_size() + 1);
 	}
 		
 		top_++;
-		Array<T>::set(top_ - 1, element);
+		
+		aggregationArray_.set(top_ - 1, element);
 }
 
 //

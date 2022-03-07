@@ -12,13 +12,15 @@
 // a queue is not an array. Because you are using inheritence, you are forced to hide
 // methods that do not make sense to this class.
 
+//changed to  aggregation
+
 /**
  * @class Queue
  *
  * Basic queue for abitrary elements.
  */
 template <typename T>
-class Queue : public Array <T> //needs to inherit Array
+class Queue
 {
 public:
     /// Type definition of the type.
@@ -35,14 +37,14 @@ public:
         empty_exception(void)
             : std::exception() { }
 
-       
+
     };
 
     //Default constructor
     Queue(void);
 
     /// Copy constructor.
-    Queue(const Queue & s);
+    Queue(const Queue& s);
 
     /// Destructor.
     ~Queue(void);
@@ -53,7 +55,7 @@ public:
     * @param[in]      rhs           Right-hand side of operator
     * @return         Reference to self
     */
-    const Queue & operator = (const Queue & rhs);
+    const Queue& operator = (const Queue& rhs);
 
     /**
      * adds the element to the end of the list;
@@ -67,7 +69,7 @@ public:
      *
      * @exception      empty_exception    The queue is empty.
      */
-    void dequeue(void);
+    T dequeue(void);
 
 
     /**
@@ -94,7 +96,7 @@ public:
 private:
     int front_; //first element of queue
     int back_; //last element of queue
-
+    Array<T> aggregationArray_;
 
 
 };
